@@ -3,13 +3,14 @@ package ws.billdavis.thymeleaf.employee;
 import org.joda.time.DateTime;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 import java.util.UUID;
 
 public class EmployeeQTO {
     private UUID id;
     private String name;
     private String title;
-    private EmployeeQTO manager;
+    private Optional<EmployeeQTO> managerOptional;
     private BigDecimal salary;
     private DateTime hireDate;
 
@@ -22,7 +23,7 @@ public class EmployeeQTO {
         this.id = id;
         this.name = name;
         this.title = title;
-        this.manager = manager;
+        this.managerOptional = Optional.ofNullable( manager );
         this.salary = salary;
         this.hireDate = hireDate;
     }
@@ -33,8 +34,8 @@ public class EmployeeQTO {
     public void setName( final String name ) { this.name = name; }
     public String getTitle() { return title; }
     public void setTitle( final String title ) { this.title = title; }
-    public EmployeeQTO getManager() { return manager; }
-    public void setManager( final EmployeeQTO manager ) { this.manager = manager; }
+    public Optional<EmployeeQTO> getManagerOptional() { return managerOptional; }
+    public void setManagerOptional( final EmployeeQTO managerOptional ) { this.managerOptional = Optional.ofNullable( managerOptional ); }
     public BigDecimal getSalary() { return salary; }
     public void setSalary( final BigDecimal salary ) { this.salary = salary; }
     public DateTime getHireDate() { return hireDate; }
