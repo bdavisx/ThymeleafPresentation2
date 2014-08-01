@@ -1,4 +1,4 @@
-package ws.billdavis.thymeleaf;
+package ws.billdavis.thymeleaf.employee;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
