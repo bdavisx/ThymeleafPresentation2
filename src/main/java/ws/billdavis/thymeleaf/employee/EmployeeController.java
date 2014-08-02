@@ -10,7 +10,6 @@ public class EmployeeController {
 
     @RequestMapping(value = "/employeeList", method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
-		model.addAttribute("message", "Hello world!");
 		return "employeeList";
 	}
 }
