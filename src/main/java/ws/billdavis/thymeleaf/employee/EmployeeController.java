@@ -21,10 +21,20 @@ public class EmployeeController {
 
     @RequestMapping(value = "/employeeList", method = RequestMethod.GET)
 	public String list( Model model ) {
-        final List<EmployeeListQTO> employeeList = employeeQueryService.getEmployeeList();
-        model.addAttribute( "employees", employeeList );
+        prepareForEmployeeList( model );
         return "employees/list";
 	}
+
+    @RequestMapping(value = "/employeeListWithSelection", method = RequestMethod.GET)
+	public String listWithSelection( Model model ) {
+        prepareForEmployeeList( model );
+        return "employees/listWithSelection";
+	}
+
+    private void prepareForEmployeeList( final Model model ) {
+        final List<EmployeeListQTO> employeeList = employeeQueryService.getEmployeeList();
+        model.addAttribute( "employees", employeeList );
+    }
 
     @RequestMapping(value = "/employee/{employeeId}/details", method = RequestMethod.GET)
 	public String details( @PathVariable String employeeId, Model model ) {
