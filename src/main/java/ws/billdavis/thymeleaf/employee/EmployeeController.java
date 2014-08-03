@@ -15,7 +15,14 @@ public class EmployeeController {
     private EmployeeQueryService employeeQueryService;
 
     @RequestMapping(value = "/employeeList", method = RequestMethod.GET)
-	public String get( Model model ) {
+	public String list( Model model ) {
+        final List<EmployeeListQTO> employeeList = employeeQueryService.getEmployeeList();
+        model.addAttribute( "employees", employeeList );
+        return "employeeList";
+	}
+
+    @RequestMapping(value = "/employee/{employeeId}/details", method = RequestMethod.GET)
+	public String details( Model model ) {
         final List<EmployeeListQTO> employeeList = employeeQueryService.getEmployeeList();
         model.addAttribute( "employees", employeeList );
         return "employeeList";
