@@ -41,7 +41,9 @@ public class EmployeeController {
         log.debug( "Loading employee with id: " + employeeId );
 
         try {
-            final Optional<EmployeeQTO> employeeOptional = employeeQueryService.getEmployee( UUID.fromString( employeeId ) );
+            final Optional<EmployeeQTO> employeeOptional =
+                employeeQueryService.getEmployee( UUID.fromString( employeeId ) );
+
             if( employeeOptional.isPresent() ) {
                 model.addAttribute( "employee", employeeOptional.get() );
                 return "employees/details";

@@ -21,7 +21,7 @@ import ws.billdavis.thymeleaf.Application;
 
 @Configuration
 @ComponentScan(basePackageClasses = Application.class)
-class WebMvcConfig extends WebMvcConfigurationSupport {
+public class WebMVCConfig extends WebMvcConfigurationSupport {
 
     private static final String MESSAGE_SOURCE = "/WEB-INF/i18n/messages";
     private static final String VIEWS = "/WEB-INF/templates/";

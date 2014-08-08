@@ -4,9 +4,11 @@
 
 <head>
     <title>Employee Management System</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" media="all" href="../../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
-    <link rel="stylesheet" type="text/css" media="all" href="../../../css/bootstrap-theme.min.css" th:href="@{/css/bootstrap-theme.min.css}" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../../../css/bootstrap.min.css"
+        th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../../../css/bootstrap-theme.min.css"
+        th:href="@{/css/bootstrap-theme.min.css}"/>
 </head>
 
 <body>
@@ -17,21 +19,25 @@
 
     <table class="table table-striped">
         <thead>
-            <tr>
-                <th th:text="#{employeeList.employeeTable.name}">Name</th>
-                <th>Name w/ Relative Link</th>
-                <th th:text="#{employeeList.employeeTable.id}">id</th>
-                <th>Id object</th>
-            </tr>
+        <tr>
+            <th th:text="#{employeeList.employeeTable.name}">Name</th>
+            <th>Name w/ Relative Link</th>
+            <th th:text="#{employeeList.employeeTable.id}">id</th>
+            <th>Id object</th>
+        </tr>
         </thead>
         <tbody>
-            <tr th:each="employee : ${employees}" th:object="${employee}">
-                <!-- Note that the URL ends up referencing the app context, the next one doesn't though... -->
-                <td><a th:href="@{/employee/{employeeId}/details(employeeId=*{id})}" href="#"><span th:text="*{name}">Bill Davis</span></a></td>
-                <td><a th:href="@{employee/{employeeId}/details(employeeId=*{id})}" href="#"><span th:text="*{name}">Bill Davis</span></a></td>
-                <td th:text="*{id}">7a51aa70-1a91-11e4-8c21-0800200c9a66</td>
-                <td th:text="${#object.id}">7a51aa70-1a91-11e4-8c21-0800200c9a66</td>
-            </tr>
+        <tr th:each="employee : ${employees}" th:object="${employee}">
+            <!-- Note that the URL ends up referencing the app context, the next one doesn't though... -->
+            <td><a th:href="@{/employee/{employeeId}/details(employeeId=*{id})}" href="#">
+                    <span th:text="*{name}">Bill Davis</span>
+            </a></td>
+            <td><a th:href="@{employee/{employeeId}/details(employeeId=*{id})}" href="#">
+                <span th:text="*{name}">Bill Davis</span>
+            </a></td>
+            <td th:text="*{id}">7a51aa70-1a91-11e4-8c21-0800200c9a66</td>
+            <td th:text="${#object.id}">7a51aa70-1a91-11e4-8c21-0800200c9a66</td>
+        </tr>
         </tbody>
     </table>
 

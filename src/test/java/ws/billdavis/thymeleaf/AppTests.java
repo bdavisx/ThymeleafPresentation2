@@ -9,15 +9,17 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
+import ws.billdavis.thymeleaf.config.MainConfiguration;
+import ws.billdavis.thymeleaf.config.WebMVCConfig;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
+//@ContextConfiguration( new Class[] { WebMVCConfig.class, MainConfiguration.class })
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration("file:../../../../../main/webapp/WEB-INF/applicationContext.xml")
 public class AppTests {
     private MockMvc mockMvc;
 
