@@ -13,10 +13,10 @@
 
 <div class="container">
 
-    <p>Welcome to the Employee Management System.</p>
+    <h1 th:text="#{home.greeting}">Welcome to the Employee Management System.</h1>
 
     <ul class="nav nav-stacked">
-        <li ><a th:href="@{/employeeList}" href="#">Employee List</a></li>
+        <li><a th:href="@{/employeeList}" href="#">Employee List</a></li>
         <li><a href="#">Profile</a></li>
         <li><a href="#">Messages</a></li>
     </ul>
