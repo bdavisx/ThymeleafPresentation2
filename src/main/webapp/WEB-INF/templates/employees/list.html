@@ -21,10 +21,11 @@
                 <th th:text="#{employeeList.employeeTable.name}">Name</th>
                 <th th:text="#{employeeList.employeeTable.id}">id</th>
                 <th th:text="#{employeeList.employeeTable.name}">Name 2</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each="employee : ${employees}">
+            <tr th:each="employee,is : ${employees}">
                 <td><a th:href="@{/employee/{employeeId}/details(employeeId=${employee.id})}" href="#">
                     <span th:text="${employee.name}">Bill Davis</span>
                 </a></td>
@@ -34,6 +35,8 @@
                 <td th:text="${employee.name}">
                     <a th:href="@{/employee/{employeeId}/details(employeeId=${employee.id})}" href="#">Bill Davis</a>
                 </td>
+
+                <td><span th:text="|${is.count}, ${is.index}, ${is.size}, ${is.even}, ${is.first}"/></td>
             </tr>
         </tbody>
     </table>

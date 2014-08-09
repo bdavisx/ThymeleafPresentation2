@@ -13,28 +13,15 @@
 
 <div class="container">
 
-    <h1 th:text="#{employeeList.header}">This is the employee list example.</h1>
+    <h1>Employee Details</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th th:text="#{employeeList.employeeTable.name}">Name</th>
-                <th th:text="#{employeeList.employeeTable.id}">id</th>
-                <th th:text="#{employeeList.employeeTable.name}">Name 2</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="employee : ${employees}">
-                <td><a th:href="@{/employee/{employeeId}/details(employeeId=${employee.id})}" href="#">
-                    <span th:text="${employee.name}">Bill Davis</span></a></td>
-                <td th:text="${employee.id}">7a51aa70-1a91-11e4-8c21-0800200c9a66</td>
-                <!-- This is a gotcha, the link (a href) is replaced by the th:text in the outer element -->
-                <td th:text="${employee.name}"><a th:href="@{/employee/{employeeId}/details(employeeId=${employee.id})}" href="#">Bill Davis</a></td>
-            </tr>
-        </tbody>
-    </table>
+    <form action="#" th:action="@{/employee/update}" th:object="${employee}" method="post" role="form">
+        <div class="form-group">
+            <label for="id">Id</label>
+            <input id="id" th:field="*{id}" readonly="true" class="form-control"/>
+        </div>
+    </form>
 
-    <h1>Blah blah blha</h1>
 </div>
 
 <script src="../../../js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>

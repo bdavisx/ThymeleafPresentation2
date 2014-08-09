@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Welcome - Employee Management System</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap-theme.min.css" th:href="@{/css/bootstrap-theme.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/application.css" th:href="@{/css/application.css}"/>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h4>Concatenation</h4>
+    <p th:text="${someText + ' and additional text'}"/>
+
+    <h4>Direct Substitution</h4>
+    <p th:text="|${someText} and additional text|"/>
+
+    <h4>Spring EL</h4>
+    <p th:text="${'Hello world'.bytes.length}"/>
+
+    <h4>Conditional Display</h4>
+    <span th:if="${expressionPO.showSensitiveInformation}">
+        <p>Some sensitive information.</p>
+    </span>
+
+    <h4>Elvis Operator</h4>
+    <span th:text="${expressionPO.valueThatExists} ?: 'Value does not exist'"/><br/>
+    <span th:text="${expressionPO.valueThatDoesNotExist} ?: 'Value does not exist'"/><br/>
+
+</div>
+
+<script src="../../js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+
+</body>
+
+</html>
