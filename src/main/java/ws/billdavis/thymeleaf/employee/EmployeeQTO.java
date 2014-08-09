@@ -13,6 +13,7 @@ public class EmployeeQTO {
     private Optional<EmployeeQTO> managerOptional;
     private BigDecimal salary;
     private DateTime hireDate;
+    private EmployeeRating employeeRating = EmployeeRating.Average;
 
     public EmployeeQTO() {
     }
@@ -28,14 +29,18 @@ public class EmployeeQTO {
         this.hireDate = hireDate;
     }
 
+    public Optional<EmployeeQTO> getManagerOptional() { return managerOptional; }
+    public void setManagerOptional( final EmployeeQTO managerOptional ) { this.managerOptional = Optional.ofNullable( managerOptional ); }
+    public boolean getHasManager() { return managerOptional.isPresent(); }
+
+    public EmployeeRating getEmployeeRating() { return employeeRating; }
+    public void setEmployeeRating( final EmployeeRating employeeRating ) { this.employeeRating = employeeRating; }
     public UUID getId() { return id; }
     public void setId( final UUID id ) { this.id = id; }
     public String getName() { return name; }
     public void setName( final String name ) { this.name = name; }
     public String getTitle() { return title; }
     public void setTitle( final String title ) { this.title = title; }
-    public Optional<EmployeeQTO> getManagerOptional() { return managerOptional; }
-    public void setManagerOptional( final EmployeeQTO managerOptional ) { this.managerOptional = Optional.ofNullable( managerOptional ); }
     public BigDecimal getSalary() { return salary; }
     public void setSalary( final BigDecimal salary ) { this.salary = salary; }
     public DateTime getHireDate() { return hireDate; }

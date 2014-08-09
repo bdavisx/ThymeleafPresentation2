@@ -3,10 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
+    <link rel="stylesheet" type="text/css" href="src/main/webapp/css/application.css"/>
     <title>Employee Management System</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
     <link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap-theme.min.css" th:href="@{/css/bootstrap-theme.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/application.css" th:href="@{/css/application.css}"/>
 </head>
 
 <body>
@@ -18,14 +20,44 @@
     <form action="#" th:action="@{/employee/update}" th:object="${employee}" method="post" role="form">
         <div class="form-group">
             <label for="id">Id</label>
-            <input id="id" th:field="*{id}" readonly="true" class="form-control"/>
+            <input id="id" type="text" th:field="*{id}" readonly="true" class="form-control"/>
         </div>
+        <div class="form-group">
+            <label for="employeeName">Name</label>
+            <input id="employeeName" type="text" th:field="*{name}" class="form-control"/>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input id="hasManager" type="checkbox" th:field="*{hasManager}"/> Has Manager?
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label for="rating">Rating</label>
+            <select th:field="*{employeeRating}" id="rating">
+                <option th:each="rating : ${T(ws.billdavis.thymeleaf.employee.EmployeeRating).values()}"
+                    th:value="${rating}"
+                    th:text="${rating.description}"
+                    />
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="ratingRadio">Rating Radio</label>
+            <ul id="ratingRadio" class="noBullets">
+                <li th:each="rating : ${T(ws.billdavis.thymeleaf.employee.EmployeeRating).values()}">
+                    <input type="radio" th:field="*{employeeRating}" th:value="${rating}" />
+                    <label th:for="${#ids.prev('employeeRating')}" th:text="${rating.description}">Test</label>
+                </li>
+            </ul>
+        </div>
+
+        <button type="submit" class="btn btn-default">Save</button>
     </form>
 
 </div>
 
 <script src="../../../js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
-
 
 </body>
 

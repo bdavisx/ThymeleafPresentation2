@@ -1,1 +1,5 @@
 h6 { font-weight: bold; }
+
+.noBullets {
+    list-style-type: none;
+}
