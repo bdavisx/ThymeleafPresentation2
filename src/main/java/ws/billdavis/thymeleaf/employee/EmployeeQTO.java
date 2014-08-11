@@ -13,20 +13,20 @@ public class EmployeeQTO {
     private Optional<EmployeeQTO> managerOptional;
     private BigDecimal salary;
     private DateTime hireDate;
-    private EmployeeRating employeeRating = EmployeeRating.Average;
+    private EmployeeRating employeeRating;
 
     public EmployeeQTO() {
     }
 
     public EmployeeQTO( final UUID id, final String name, final String title, final EmployeeQTO manager,
-        final BigDecimal salary,
-        final DateTime hireDate ) {
+        final BigDecimal salary, final DateTime hireDate, final EmployeeRating employeeRating ) {
         this.id = id;
         this.name = name;
         this.title = title;
         this.managerOptional = Optional.ofNullable( manager );
         this.salary = salary;
         this.hireDate = hireDate;
+        this.employeeRating = employeeRating;
     }
 
     public Optional<EmployeeQTO> getManagerOptional() { return managerOptional; }

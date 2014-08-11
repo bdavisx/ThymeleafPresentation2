@@ -5,17 +5,23 @@
 <head>
     <title>Employee Management System</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
-    <link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap-theme.min.css" th:href="@{/css/bootstrap-theme.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../../../css/bootstrap.min.css"
+        th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../../../css/bootstrap-theme.min.css"
+        th:href="@{/css/bootstrap-theme.min.css}"/>
 </head>
 
 <body>
 
 <div class="container">
 
-    <h1 th:text="#{employeeList.header}">This is the employee list example.</h1>
+    <h1>
+        <span th:text="#{employeeList.header}">This is the employee list example.</span>
+        <span class="badge pull-right" th:text="${#lists.size(employees)}"></span>
+    </h1>
 
-    <table class="table table-striped">
+
+    <table class="table table-striped table-hover">
         <thead>
             <tr>
                 <th th:text="#{employeeList.employeeTable.name}">Name</th>
@@ -29,7 +35,7 @@
                 <td><a th:href="@{/employee/{employeeId}/details(employeeId=${employee.id})}" href="#">
                     <span th:text="${employee.name}">Bill Davis</span>
                 </a></td>
-                <td th:text="${employee.id}">7a51aa70-1a91-11e4-8c21-0800200c9a66</td>
+                <td th:text="${employee.id}" rating:setBackgroundByEmployeeRating="${employee.employeeRating}">7a51aa70-1a91-11e4-8c21-0800200c9a66</td>
 
                 <!-- This is a gotcha, the link (a href) is replaced by the th:text in the outer element -->
                 <td th:text="${employee.name}">

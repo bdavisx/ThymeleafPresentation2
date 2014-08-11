@@ -27,6 +27,9 @@
     <span th:if="${expressionPO.showSensitiveInformation}">
         <p>Some sensitive information.</p>
     </span>
+    <span th:unless="${expressionPO.showSensitiveInformation}">
+        <p>Some NON-sensitive information.</p>
+    </span>
 
     <h4>Elvis Operator</h4>
     <span th:text="${expressionPO.valueThatExists} ?: 'Value does not exist'"/><br/>
