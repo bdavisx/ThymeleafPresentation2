@@ -23,11 +23,11 @@
     <form action="#" th:action="@{/employee/update}" th:object="${employee}" method="post" role="form">
         <div class="form-group">
             <label for="id">Id</label>
-            <input id="id" type="text" th:field="*{id}" readonly="true" class="form-control"/>
+            <input id="id" th:field="*{id}" readonly="true" class="form-control"/>
         </div>
         <div class="form-group">
             <label for="employeeName">Name</label>
-            <input id="employeeName" type="text" th:field="*{name}" class="form-control"/>
+            <input id="employeeName" th:field="*{name}" class="form-control"/>
         </div>
         <div class="checkbox">
             <label>

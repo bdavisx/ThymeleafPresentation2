@@ -34,8 +34,7 @@ public class EmployeeRatingProcessor extends AbstractAttributeModifierAttrProces
 
     @Override
     protected boolean removeAttributeIfEmpty( final Arguments arguments, final Element element,
-        final String attributeName,
-        final String newAttributeName ) {
+        final String attributeName, final String newAttributeName ) {
 
         return true;
     }
