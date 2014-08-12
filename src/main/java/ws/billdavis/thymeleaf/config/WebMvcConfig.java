@@ -9,11 +9,16 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
+import org.thymeleaf.dialect.IDialect;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import org.thymeleaf.templateresolver.TemplateResolver;
 import ws.billdavis.thymeleaf.Application;
+import ws.billdavis.thymeleaf.web.EmployeeRatingDialect;
+
+import java.util.HashSet;
+import java.util.Set;
 
 //includeFilters = @Filter(Controller.class), useDefaultFilters = false
 
@@ -59,7 +64,15 @@ public class WebMVCConfig extends WebMvcConfigurationSupport {
     public SpringTemplateEngine templateEngine() {
         SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver( templateResolver() );
+        Set<IDialect> dialects = new HashSet<>();
+        dialects.add( employeeRatingDialect() );
+        templateEngine.setAdditionalDialects( dialects );
         return templateEngine;
+    }
+
+    @Bean
+    public EmployeeRatingDialect employeeRatingDialect() {
+        return new EmployeeRatingDialect();
     }
 
     @Bean
