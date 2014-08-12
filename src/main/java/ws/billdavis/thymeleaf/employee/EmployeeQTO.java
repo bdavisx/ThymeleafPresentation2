@@ -33,6 +33,9 @@ public class EmployeeQTO {
     public void setManagerOptional( final EmployeeQTO managerOptional ) { this.managerOptional = Optional.ofNullable( managerOptional ); }
     public boolean getHasManager() { return managerOptional.isPresent(); }
 
+    // defeats the purpose of having the Optional above, but used to illustrate the Elvis operator...
+    public EmployeeQTO getManager() { return managerOptional.isPresent() ? managerOptional.get() : null; }
+
     public EmployeeRating getEmployeeRating() { return employeeRating; }
     public void setEmployeeRating( final EmployeeRating employeeRating ) { this.employeeRating = employeeRating; }
     public UUID getId() { return id; }

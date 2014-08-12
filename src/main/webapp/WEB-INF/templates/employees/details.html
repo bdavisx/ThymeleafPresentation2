@@ -35,6 +35,8 @@
             </label>
         </div>
 
+        <p>Manager Name: <span th:text="*{manager?.name}"/></p>
+
         <div class="form-group">
             <label for="rating">Rating</label>
             <select th:field="*{employeeRating}" id="rating">
